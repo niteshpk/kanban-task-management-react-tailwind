@@ -14,6 +14,8 @@ function AddEditTaskModal({
 }) {
   const dispatch = useDispatch();
   const [isFirstLoad, setIsFirstLoad] = useState(true);
+
+  // eslint-disable-next-line no-unused-vars
   const [isValid, setIsValid] = useState(true);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -179,6 +181,7 @@ function AddEditTaskModal({
                 onClick={() => {
                   onDelete(subtask.id);
                 }}
+                alt="cross-icon"
                 className=" m-4 cursor-pointer "
               />
             </div>
@@ -222,7 +225,7 @@ function AddEditTaskModal({
             }}
             className=" w-full items-center text-white bg-[#635fc7] py-2 rounded-full "
           >
-           {type === "edit" ? " save edit" : "Create task"}
+            {type === "edit" ? " save edit" : "Create task"}
           </button>
         </div>
       </div>

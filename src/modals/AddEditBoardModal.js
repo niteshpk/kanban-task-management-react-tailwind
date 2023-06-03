@@ -4,7 +4,7 @@ import boardsSlice from "../redux/boardsSlice";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
 
-function AddEditBoardModal({ setIsBoardModalOpen, type , }) {
+function AddEditBoardModal({ setIsBoardModalOpen, type }) {
   const dispatch = useDispatch();
   const [isFirstLoad, setIsFirstLoad] = useState(true);
   const [name, setName] = useState("");
@@ -12,6 +12,7 @@ function AddEditBoardModal({ setIsBoardModalOpen, type , }) {
     { name: "Todo", tasks: [], id: uuidv4() },
     { name: "Doing", tasks: [], id: uuidv4() },
   ]);
+  // eslint-disable-next-line no-unused-vars
   const [isValid, setIsValid] = useState(true);
   const board = useSelector((state) => state.boards).find(
     (board) => board.isActive
@@ -32,7 +33,7 @@ function AddEditBoardModal({ setIsBoardModalOpen, type , }) {
     if (!name.trim()) {
       return false;
     }
-    for (let i = 0 ; i < newColumns.length ; i++) {
+    for (let i = 0; i < newColumns.length; i++) {
       if (!newColumns[i].name.trim()) {
         return false;
       }
@@ -118,6 +119,7 @@ function AddEditBoardModal({ setIsBoardModalOpen, type , }) {
                 onClick={() => {
                   onDelete(column.id);
                 }}
+                alt="cross-icon"
                 className=" m-4 cursor-pointer "
               />
             </div>

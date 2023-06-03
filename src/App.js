@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import EmptyBoard from './components/EmptyBoard';
+import EmptyBoard from "./components/EmptyBoard";
 import boardsSlice from "./redux/boardsSlice";
 
 function App() {
@@ -15,23 +15,22 @@ function App() {
   return (
     <div className=" overflow-hidden  overflow-x-scroll">
       <>
-        {boards.length > 0 ?
-        <>
-        <Header
-          setIsBoardModalOpen={setIsBoardModalOpen}
-          isBoardModalOpen={isBoardModalOpen}
-        />
-        <Home
-          setIsBoardModalOpen={setIsBoardModalOpen}
-          isBoardModalOpen={isBoardModalOpen}
-        />
-        </>
-        :
-        <>
-          <EmptyBoard type='add'/>
-        </>
-      }
-        
+        {boards.length > 0 ? (
+          <>
+            <Header
+              setIsBoardModalOpen={setIsBoardModalOpen}
+              isBoardModalOpen={isBoardModalOpen}
+            />
+            <Home
+              setIsBoardModalOpen={setIsBoardModalOpen}
+              isBoardModalOpen={isBoardModalOpen}
+            />
+          </>
+        ) : (
+          <>
+            <EmptyBoard type="add" />
+          </>
+        )}
       </>
     </div>
   );
